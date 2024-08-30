@@ -1,4 +1,4 @@
-package org.wildfly.examples;
+package com.benhession.wildflytest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

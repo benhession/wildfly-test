@@ -1,4 +1,4 @@
-package org.wildfly.examples.model;
+package com.benhession.wildflytest.model;
 
 import jakarta.persistence.*;
 

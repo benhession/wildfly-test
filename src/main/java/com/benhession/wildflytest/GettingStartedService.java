@@ -1,4 +1,4 @@
-package org.wildfly.examples;
+package com.benhession.wildflytest;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
