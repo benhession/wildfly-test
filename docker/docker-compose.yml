@@ -1,0 +1,12 @@
+services:
+
+  db:
+    build: ./mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: secret
+    # (this is just an example, not intended to be a production configuration)
+
+    ports:
+      - 3306:3306
