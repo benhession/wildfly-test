@@ -2,6 +2,7 @@ package com.benhession.wildflytest.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -17,5 +18,6 @@ public class Supplier {
     @Id
     @GeneratedValue
     long id;
+    @Getter
     String name;
 }

@@ -214,6 +214,21 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Deltaspike JPA  -->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jpa-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jpa-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Test scope dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
