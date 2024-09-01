@@ -50,6 +50,9 @@
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.release>11</maven.compiler.release>
+
+        <!-- DeltaSpike CDI extensions  -->
+        <deltaspike.version>2.0.0</deltaspike.version>
     </properties>
 
     <!--
@@ -134,11 +137,20 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- DeltaSpike BOM -->
+            <dependency>
+                <groupId>org.apache.deltaspike.distribution</groupId>
+                <artifactId>distributions-bom</artifactId>
+                <version>${deltaspike.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -165,6 +177,41 @@
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
+        <dependency>
+            <groupId>jakarta.faces</groupId>
+            <artifactId>jakarta.faces-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- DeltaSpike Core -->
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- DeltaSpike Data -->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Test scope dependencies -->
@@ -249,6 +296,7 @@
                         <layer>cloud-server</layer>
                         <layer>mysql-driver</layer>
                         <layer>mysql-datasource</layer>
+                        <layer>jsf</layer>
                     </layers>
                 </configuration>
                 <executions>
