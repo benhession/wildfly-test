@@ -20,17 +20,27 @@
         <h:commandLink value="${resourcebundle.addSupplierH1}" action="addSupplier"/>
     </h:form>
 
-    <c:if test="#{supplierController.suppliers.size() == 0}">
-        <p>${resourcebundle.missingSuppliersMessage}</p>
-    </c:if>
+    <h:panelGroup layout="block" id="supplierListWrapper" styleClass="supplier-list-wrapper">
+        <c:if test="#{supplierController.suppliers.size() == 0}">
+            <p>${resourcebundle.missingSuppliersMessage}</p>
+        </c:if>
 
-    <c:if test="#{supplierController.suppliers.size() > 0}">
-        <ul>
-            <ui:repeat value="#{supplierController.suppliers}" var="supplier">
-                <li>#{supplier.name}</li>
-            </ui:repeat>
-        </ul>
-    </c:if>
+        <c:if test="#{supplierController.suppliers.size() > 0}">
+            <ul>
+                <ui:repeat value="#{supplierController.suppliers}" var="supplier">
+                    <li class="supplier-list-element">
+                        <b>#{supplier.name}</b>
+                        <h:form>
+                            <h:commandButton id="removeSupplierBtn" styleClass="delete-btn" value="Remove">
+                                <f:actionListener binding="#{supplierController.removeSupplier(supplier.id)}"/>
+                                <f:ajax execute="removeSupplierBtn" render="supplierListWrapper" event="click"/>
+                            </h:commandButton>
+                        </h:form>
+                    </li>
+                </ui:repeat>
+            </ul>
+        </c:if>
+    </h:panelGroup>
 </div>
 </body>
 

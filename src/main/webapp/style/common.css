@@ -90,6 +90,25 @@ code {
     margin-right: 0.5em;
 }
 
+.supplier-list-element {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 1em 0 0 0;
+}
+
+.delete-btn {
+    background-color: #c7402d;
+    color: aliceblue;
+    border: none;
+    padding: 0.5em;
+    height: 2.5em;
+}
+
+.supplier-list-wrapper {
+    margin-top: 2em;
+}
+
 footer {
     position:fixed;
     bottom:0;

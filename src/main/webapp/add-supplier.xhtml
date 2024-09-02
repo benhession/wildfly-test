@@ -19,7 +19,7 @@
 
     <h:form>
         <h:inputText id="testInput" styleClass="text-input" value="#{supplierController.name}"
-                     placeholder="${resourcebundle.supplierName}">
+                     placeholder="${resourcebundle.supplierName}" a:autofocus="true">
             <f:ajax execute="textInput" render="supplierNameDisplay" event="keyup"/>
         </h:inputText>
         <h:commandButton value="${resourcebundle.add}" action="navigateToHome">

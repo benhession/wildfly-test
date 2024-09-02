@@ -33,4 +33,9 @@ public class SupplierController {
             supplierService.addSupplier(name);
         }
     }
+
+    public void removeSupplier(long id) {
+        supplierService.deleteSupplier(id);
+        loadSuppliers();
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "suppliers")
 @NoArgsConstructor
+@Getter
 public class Supplier {
 
     @Builder
@@ -18,6 +19,5 @@ public class Supplier {
     @Id
     @GeneratedValue
     long id;
-    @Getter
     String name;
 }
