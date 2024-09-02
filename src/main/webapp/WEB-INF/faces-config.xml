@@ -10,6 +10,9 @@
         <locale-config>
             <default-locale>en</default-locale>
         </locale-config>
+        <message-bundle>
+            com.benhession.wildflytest.message.CommonMessage
+        </message-bundle>
     </application>
 
     <navigation-rule>
