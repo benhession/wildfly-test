@@ -1,19 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core"
-      xmlns:ui="jakarta.faces.facelets">
-<f:loadBundle basename="ResourceJSF" var="resourcebundle" />
-<title>${resourcebundle.homeTitle}</title>
-<h1>${resourcebundle.addSupplierH1}</h1>
+      xmlns:ui="jakarta.faces.facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<h:form>
-    <h:commandLink value="${resourcebundle.back}" action="navigateToHome"/>
-</h:form>
+<h:head>
+    <f:loadBundle basename="ResourceJSF" var="resourcebundle"/>
+    <title>${resourcebundle.homeTitle}</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico"/>
+    <link rel="stylesheet" href="./style/normalize.min.css"/>
+    <link rel="stylesheet" href="./style/common.css"/>
+</h:head>
 
-<h:form>
-    <h:inputText value="#{supplierController.name}" placeholder="${resourcebundle.supplierName}"/>
-    <h:commandButton value="${resourcebundle.add}" action="navigateToHome">
-        <f:actionListener binding="#{supplierController.addSupplier()}"/>
-    </h:commandButton>
-</h:form>
+<body>
+<div class="wrapper">
+
+    <h1>${resourcebundle.addSupplierH1}</h1>
+
+    <h:form>
+        <h:inputText id="testInput" styleClass="text-input" value="#{supplierController.name}"
+                     placeholder="${resourcebundle.supplierName}">
+            <f:ajax execute="textInput" render="supplierNameDisplay" event="keyup"/>
+        </h:inputText>
+        <h:commandButton value="${resourcebundle.add}" action="navigateToHome">
+            <f:actionListener binding="#{supplierController.addSupplier()}"/>
+        </h:commandButton>
+    </h:form>
+
+    <h:panelGroup layout="block" id="supplierNameDisplay">
+        <c:if test="#{supplierController.name != null and !supplierController.name.blank}">
+            <p>
+                <b>${resourcebundle.newSupplierName}:</b> #{supplierController.name}
+            </p>
+        </c:if>
+    </h:panelGroup>
+
+    <p>
+        <h:form>
+            <h:commandLink value="${resourcebundle.back}" action="navigateToHome"/>
+        </h:form>
+    </p>
+</div>
+</body>
 
 </html>

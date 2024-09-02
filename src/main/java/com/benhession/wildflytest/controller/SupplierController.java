@@ -29,7 +29,7 @@ public class SupplierController {
     }
 
     public void addSupplier() {
-        if (name != null) {
+        if (name != null && !name.isBlank()) {
             supplierService.addSupplier(name);
         }
     }

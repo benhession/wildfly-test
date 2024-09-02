@@ -38,14 +38,13 @@ html {
 }
 
 body {
-    background: url(bkg.gif) repeat-x;
     color: #5B5B5B;
     margin-top: 100px;
     text-align: center;
 }
 
 h1 {
-    padding-top: 20px;
+    padding-top: 10px;
     color: #7b1e1e;
 }
 
@@ -85,6 +84,10 @@ code {
 
 .logo {
     margin-bottom: 10px;
+}
+
+.text-input {
+    margin-right: 0.5em;
 }
 
 footer {
